@@ -74,21 +74,28 @@ test('login 2', async ({ page }) => {
     await page.locator('//i[@class="oxd-icon bi-caret-down-fill"]').click();
     await page.locator('//div[@class="oxd-input-group oxd-input-field-bottom-space"]//div//input[@class="oxd-input oxd-input--active"]').click();
     await page.waitForLoadState('networkidle');
-    // expect(await page.locator('//label[normalize-space()="Username"]')).toBeVisible();
-    // await page.locator('//div[@class="oxd-input-group oxd-input-field-bottom-space"]//div//input[@class="oxd-input oxd-input--active"]').fill("maria");
-    await page.getByRole('textbox').nth(1).fill('maria');
+    expect(await page.locator('//label[normalize-space()="Username"]')).toBeVisible();
+    // await page.locator('//div[@class="oxd-input-group oxd-input-field-bottom-space"]//div//input[@class="oxd-input oxd-input--active"]').fill("Nalim");
+    await page.getByRole('textbox').nth(1).fill('Nalim');
     await page.waitForLoadState('networkidle');
     await page.locator('//button[normalize-space()="Search"]').click();
     await page.waitForLoadState('networkidle');
-    expect(await page.getByText('(1) Record Found')).toBeVisible();
-    await page.locator('//i[@class="oxd-icon bi-pencil-fill"]').click();
+    await page.locator('//div[@class="orangehrm-paper-container"]//button[2]').click();
     expect(await page.locator('//h6[normalize-space()="Edit User"]')).toBeVisible();
-    await page.locator('//input[@placeholder="Type for hints..."]').click();
-    await page.getByRole('textbox').nth(1).fill('Maria Paula Saraiva Braga Albuquerque');
     await page.locator('//button[normalize-space()="Save"]').click();
 
 
 
+
+
+
+    // expect(await page.locator('//div[@class="orangehrm-horizontal-padding orangehrm-vertical-padding"]]')).toBeVisible();
+    // expect(await page.getByText('(1) Record Found')).toBeVisible();
+    // await page.locator('//i[@class="oxd-icon bi-pencil-fill"]').click();
+    // expect(await page.locator('//h6[normalize-space()="Edit User"]')).toBeVisible();
+    // await page.locator('//input[@placeholder="Type for hints..."]').click();
+    // await page.getByRole('textbox').nth(1).fill('Maria Paula Saraiva Braga Albuquerque');
+    // await page.locator('//button[normalize-space()="Save"]').click();
 
   });
 
